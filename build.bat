@@ -1,0 +1,1 @@
+g++ src/* -Iinc -o battleship.exe -std=c++11
