@@ -27,7 +27,7 @@ int main(){
     ShipManager player(8, 8), opponent(8, 8), known(8, 8);
     Solver ai(8, 8);
     opponent.randomBoard();
-    /*placeBattleship(player, 2, "Destroyer");
+    placeBattleship(player, 2, "Destroyer");
     player.displayBoard();
     placeBattleship(player, 3, "Cruiser");
     player.displayBoard();
@@ -36,8 +36,7 @@ int main(){
     placeBattleship(player, 4, "Battleship");
     player.displayBoard();
     placeBattleship(player, 5, "Carrier");
-    player.displayBoard();*/
-    player.randomBoard();
+    player.displayBoard();
     int lastx = 0, lasty = 0, dir = 0, misscount = 0, inarow = 0;
     bool tracking = true;
     while(true){
@@ -81,7 +80,6 @@ int main(){
             break;
         }
         ai.applyResult(x, y, hit);
-        ai.print();
 
         std::cout << "your board:" << std::endl;
         player.displayBoard();
