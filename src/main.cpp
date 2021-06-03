@@ -3,6 +3,7 @@
 #include <Solver.h>
 #include <iostream>
 #include <cctype>
+#include <limits>
 
 void placeBattleship(ShipManager& player, int size, std::string name){
     std::cout << "place " << name << ":" << std::endl;
@@ -42,8 +43,12 @@ int main(){
     while(true){
         std::cout << "Target: " << std::endl;
         int x = 0, y = 0;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         std::cout << "x (0-7): ";
         std::cin >> x;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         std::cout << "y (0-7): ";
         std::cin >> y;
         Success hit = opponent.checkHit(x, y);
@@ -52,7 +57,8 @@ int main(){
             known.setTile(x,y,2);
         } else if(hit == MISS){
             std::cout << "Miss" << std::endl;
-            known.setTile(x,y,4);
+            if(known.getTile(x,y) == 0)
+                known.setTile(x,y,4);
         } else if(hit == SUNK){
             std::cout << "Sunk!!" << std::endl;
             known.setTile(x,y,3);

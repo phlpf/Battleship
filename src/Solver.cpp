@@ -22,17 +22,27 @@ void Solver::getMove(int* xp, int* yp){
                 x = i;
                 y = j;
             } else if(chance[j][i] == maxChance){
-                if(rand()%2 == 0){
+                if(rand()%3 == 0){
                     x = i;
                     y = j;
                 }                
             }
         }
     } 
+    if(maxChance==0){
+        getRandomMove(&x,&y);
+    }
     (*xp) = x;
     (*yp) = y;
 }
 
+void Solver::getRandomMove(int* xp, int* yp){
+    (*xp) = rand()%sizex;
+    (*yp) = rand()%sizey;
+    if(chance[*yp][*xp] < 0){
+        getRandomMove(xp, yp);
+    }
+}
 
 void Solver::applyResult(int x, int y, Success s){
     chance[y][x] = -1;

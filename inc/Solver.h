@@ -11,6 +11,7 @@ class Solver{
     void setAround(int x, int y, int value, bool add);
     void print();
     private:
+    void getRandomMove(int* xp, int* yp);
     int sizex, sizey;
     std::vector<std::vector<int> > chance;
 };
