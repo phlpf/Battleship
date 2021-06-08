@@ -57,6 +57,9 @@ void ShipManager::displayBoard(){
 }
 
 int ShipManager::getTile(int x, int y){
+    if(x >= size_x || x < 0 || y >= size_y || y < 0 ){
+        return -1;
+    }
     return board[y][x];
 }
 

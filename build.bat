@@ -1,1 +1,1 @@
-g++ src/* -Iinc -o battleship.exe -std=c++11
+g++ src/* -Iinc -o battleship.exe -std=c++11 -fPIC -static -static-libgcc -static-libstdc++
